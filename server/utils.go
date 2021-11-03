@@ -11,6 +11,9 @@ import (
 )
 
 func getIP(r *http.Request) (string, error) {
+	/*
+		This code checks each header possibility for the IP of the requester and returns the value
+	*/
 	ip := r.Header.Get("X-REAL-IP")
 	netIP := net.ParseIP(ip)
 	if netIP != nil {
@@ -38,6 +41,7 @@ func getIP(r *http.Request) (string, error) {
 }
 
 func randSeq(n int) string {
+	// Generate a selected number of characters
 	letters := []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 	b := make([]rune, n)
 	for i := range b {
@@ -47,6 +51,7 @@ func randSeq(n int) string {
 }
 
 func ifExists(path string) bool {
+	// Check if a path exists
 	_, err := os.Stat(path)
 	return !errors.Is(err, os.ErrNotExist)
 }
