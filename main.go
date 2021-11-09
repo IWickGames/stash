@@ -10,7 +10,7 @@ import (
 
 var (
 	VERSION string = "1.0.0"
-	HOST    string = "127.0.0.1:5050"
+	HOST    string = "0.0.0.0:5050"
 )
 
 func main() {
